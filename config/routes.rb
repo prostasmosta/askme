@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   
   resources :questions do
     put :hide, on: :member
-    patch :hide, on: :member
   end
 end
