@@ -25,3 +25,11 @@
 .mr-sm {
   margin-right: 0.1rem;
 }
+
+.mr, .mr-md {
+  margin-right: 1em;
+}
+
+.mr-lg {
+  margin-right: 1.75em;
+}
