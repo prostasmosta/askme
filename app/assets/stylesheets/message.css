@@ -5,8 +5,8 @@
 }
 
 .message-notice {
-  background-color: #ffeec2;
-  border-color: #ffba08;
+  background-color: lightgreen;
+  border-color: greenyellow;
 }
 
 .message-alert {
