@@ -22,13 +22,14 @@ body {
 
 .navbar {
   align-items: center;
-  background-color: #370617;
+  background-color: #510317;
+  border-radius: 10px;
   color: white;
   display: flex;
   justify-content: space-between;
 }
 
 .navbar a {
-  color: white;
+  /*color: white;*/
   text-decoration: none;
 }
