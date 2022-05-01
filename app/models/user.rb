@@ -3,8 +3,11 @@ class User < ApplicationRecord
 
   before_save :downcase_nickname
 
-  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[\w+\-.]+\.[a-z]+\z/i}
-  validates :nickname, presence: true, uniqueness: true, length: { maximum: 40 }, format: { with: /\A[a-z_1-9]+\z/ }
+  EMAIL_REGEXP = /\A[\w+\-.]+@[\w+\-.]+\.[a-z]+\z/i
+  NICKNAME_REGEXP = /\A[\w]+\z/
+
+  validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEXP }
+  validates :nickname, presence: true, uniqueness: true, length: { maximum: 40 }, format: { with: NICKNAME_REGEXP }
 
   def downcase_nickname
     nickname.downcase!
