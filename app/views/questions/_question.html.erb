@@ -6,15 +6,9 @@
   </div>
 <% end %>
 
-<% if question.hidden? %>
-  <div class="mb-sm hidden">
-    <%= simple_format(question.body) %>
-  </div>
-<% else %>
-  <div class="mb-sm">
-    <%= simple_format(question.body) %>
-  </div>
-<% end %>
+<div class="mb-sm <%= hidden_question(question) %>">
+  <%= simple_format h(question.body) %>
+</div>
 
 <div class="text-sm question-footer">
   <div class="text-grey">
