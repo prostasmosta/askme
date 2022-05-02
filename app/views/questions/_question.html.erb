@@ -6,9 +6,15 @@
   </div>
 <% end %>
 
-<div class="mb-sm">
-  <%= simple_format(question.body) %>
-</div>
+<% if question.hidden? %>
+  <div class="mb-sm hidden">
+    <%= simple_format(question.body) %>
+  </div>
+<% else %>
+  <div class="mb-sm">
+    <%= simple_format(question.body) %>
+  </div>
+<% end %>
 
 <div class="text-sm question-footer">
   <div class="text-grey">
@@ -20,7 +26,7 @@
     <%= button_to fa_icon('trash-o'), question_path(question), method: :delete,
                   form: { data: { turbo_confirm: "Are you sure?" } }, title: 'Удалить вопрос' %>
     <% unless question.hidden? %>
-    <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put, title: 'Скрыть вопрос' %>
+    <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :patch, title: 'Скрыть вопрос' %>
     <% end %>
   </div>
 </div>
