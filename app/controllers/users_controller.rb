@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update destroy show]
+  before_action :authorize_user, only: %i[edit update destroy]
 
   def new
     @user = User.new
@@ -55,5 +56,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def authorize_user
+    redirect_with_alert unless current_user == @user
   end
 end

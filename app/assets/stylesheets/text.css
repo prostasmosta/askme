@@ -34,6 +34,9 @@ a, button {
 .text-red {
   color: firebrick;
 }
+.text-dark-red {
+  color: darkred;
+}
 
 .askme-style {
   border: 2px solid #ffba08;
