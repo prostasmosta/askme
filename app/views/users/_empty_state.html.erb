@@ -1,0 +1,15 @@
+<link rel="stylesheet"
+      href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<div class="container text-center">
+  <div class="title-sm text-grey">
+    <p> У <%= display_nickname(current_user) %> пока нет вопросов</p>
+    <span class="material-symbols-outlined">sentiment_dissatisfied</span>
+  </div>
+
+  <div class="mt mb-lg fa-4x text-light-grey">
+    <%= fa_stacked_icon 'question', base: 'circle-o' %>
+  </div>
+
+  <%= link_to 'Я задам первый вопрос!', new_question_path(user_id: current_user.id), class: "button button-yellow" %>
+</div>

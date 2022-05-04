@@ -23,12 +23,19 @@ a, button {
   font-size: 80%;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .hidden {
   opacity: 0.5;
 }
 
 .text-grey {
   color: #a0a0a0;
+}
+.text-light-grey {
+  color: lightgray;
 }
 
 .text-red {

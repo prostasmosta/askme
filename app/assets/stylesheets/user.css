@@ -11,3 +11,14 @@
 .user-box a {
   color: #fff;
 }
+
+.empty_space {
+  /*background-color: rgba(0, 0, 0, 0);*/
+  background-image: url("../images/empty_space.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll, fixed;
+  margin-top: 5px;
+  padding: 5px;
+}
