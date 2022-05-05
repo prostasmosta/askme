@@ -19,6 +19,10 @@
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
+    <%# if question.author_id.present? %>
+   <%#= link_to display_nickname(User.find_by(id: params[:author_id])), user_path(User.find_by(id: params[:author_id])),
+           #  class: 'mr' %>
+    <%# end %>
   </div>
 
   <% if current_user == question.user %>

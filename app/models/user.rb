@@ -13,6 +13,17 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :delete_all
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'mp')
+
+  def to_param
+    nickname
+  end
+
+  def self.find(input)
+    input.to_i == 0 ? find_by_nickname(input) : super
+  end
+
   private
 
   def downcase_nickname

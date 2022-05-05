@@ -2,8 +2,9 @@ class QuestionsController < ApplicationController
   before_action :set_question_for_current_user, only: %i[update destroy edit hide]
   before_action :ensure_current_user, only: %i[update destroy edit hide]
 
-  def create 
-    @question = Question.new(create_question_params)
+  def create
+
+    @question = Question.new(create_question_params)  #current_user.questions.build
 
     if @question.save
       redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
@@ -33,11 +34,12 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    # @user = User.find(params[:author])
   end
 
   def index
-    @question = Question.new
-    @questions = Question.order("created_at DESC")
+    @questions = Question.order(created_at: :desc).last(10)
+    @users = User.order(created_at: :desc).last(10)
   end
 
   def new
