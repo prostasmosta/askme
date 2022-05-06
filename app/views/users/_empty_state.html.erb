@@ -3,7 +3,7 @@
 
 <div class="container text-center">
   <div class="title-sm text-grey">
-    <p> У <%= display_nickname(current_user) %> пока нет вопросов</p>
+    <p> У <%= display_nickname(@user) %> пока нет вопросов</p>
     <span class="material-symbols-outlined">sentiment_dissatisfied</span>
   </div>
 
@@ -11,5 +11,5 @@
     <%= fa_stacked_icon 'question', base: 'circle-o' %>
   </div>
 
-  <%= link_to 'Я задам первый вопрос!', new_question_path(user_id: current_user.id), class: "button button-yellow" %>
+  <%= link_to 'Я задам первый вопрос!', new_question_path(user_id: @user.id), class: "button button-yellow" %>
 </div>
