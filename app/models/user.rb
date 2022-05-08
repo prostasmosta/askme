@@ -20,10 +20,6 @@ class User < ApplicationRecord
     nickname
   end
 
-  def self.find(input)
-    input.to_i == 0 ? find_by_nickname(input) : super
-  end
-
   private
 
   def downcase_nickname
