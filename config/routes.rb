@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: %i[new create destroy]
-  resources :users, param: :nickname, except: %i[index]
-
-  # get '/users/:nickname', to: 'users#show'
+  resources :users, param: :nickname, except: %i[index]     # get '/users/:nickname', to: 'users#show'
+                                                            # (можно вместо param: :nickname)
 end

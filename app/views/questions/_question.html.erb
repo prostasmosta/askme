@@ -18,11 +18,14 @@
 
 <div class="text-sm question-footer">
   <div class="text-grey">
+  <% if question.author_id.present? %>
+    <p>Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author_id),
+                                class: 'text-dark-red' %></p>
+  <% else %>
+    <p>Вопрос от: Anonymous</p>
+  <% end %>
+
     <%= l(question.created_at, format: :short) %>
-    <%# if question.author_id.present? %>
-   <%#= link_to display_nickname(User.find_by(id: params[:author_id])), user_path(User.find_by(id: params[:author_id])),
-           #  class: 'mr' %>
-    <%# end %>
   </div>
 
   <% if current_user == question.user %>

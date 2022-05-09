@@ -3,8 +3,8 @@ class QuestionsController < ApplicationController
   before_action :ensure_current_user, only: %i[update destroy edit hide]
 
   def create
-
-    @question = Question.new(create_question_params)  #current_user.questions.build
+    @question = Question.new(create_question_params)
+    @question.author = current_user
 
     if @question.save
       redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
@@ -34,7 +34,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    # @user = User.find(params[:author])
   end
 
   def index
@@ -67,7 +66,7 @@ class QuestionsController < ApplicationController
   end
 
   def create_question_params
-    params.require(:question).permit(:body, :user_id)
+    params.require(:question).permit(:body, :user_id, :author_id)
   end
 
   def update_question_params
