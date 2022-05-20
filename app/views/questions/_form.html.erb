@@ -6,7 +6,7 @@
   </div>
 <% end %>
 
-<%= form_with model: question, data: {turbo: false} do |form| %>
+<%= form_with model: question, data: { turbo: false } do |form| %>
   <%= form.hidden_field :user_id %>
 
   <p><%= form.label :body, 'Текст вопроса' %></p>
@@ -16,6 +16,10 @@
     <p class="mt"><%= form.label :answer, 'Ответ' %></p>
     <p><%= form.text_area :answer, rows: 5, class: 'form-text-area' %></p>
   <% end %>
+
+  <div class="mt-sm">
+    <%= recaptcha_tags unless current_user.present? %>
+  </div>
 
   <p class="mt"><%= form.submit 'Сохранить', class: 'button button-main' %></p>
 <% end %>

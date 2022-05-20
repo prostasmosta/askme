@@ -5,18 +5,19 @@ ruby '3.0.2'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
+gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gravtastic'
 gem 'jbuilder'
 gem 'importmap-rails'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.1'
+gem 'recaptcha'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
 # gem 'sassc-rails'
-
 # gem 'image_processing', '~> 1.2'
 
 group :development, :test do
