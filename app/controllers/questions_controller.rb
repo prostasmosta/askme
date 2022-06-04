@@ -48,10 +48,16 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  def hide
+    @question.toggle!(:hidden)
+
+    redirect_to question_path(@question)
+  end
+
   private
 
   def check_captcha(model)
-    current_user.present? ? verify_recaptcha(model: model) : flash.delete(:recaptcha_error)
+    current_user.present? || verify_recaptcha(model: model)
   end
 
   def ensure_current_user
@@ -60,12 +66,6 @@ class QuestionsController < ApplicationController
 
   def set_question_for_current_user
     @question = current_user.questions.find(params[:id])
-  end
-
-  def hide
-    @question.update(hidden: true)
-
-    redirect_to question_path(@question)
   end
 
   def create_question_params

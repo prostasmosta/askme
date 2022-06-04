@@ -18,12 +18,12 @@
 
 <div class="text-sm question-footer">
   <div class="text-grey">
-  <% if question.author_id.present? %>
-    <p>Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author_id),
+    <% if question.author_id.present? %>
+      <p>Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author),
                                 class: 'text-dark-red' %></p>
-  <% else %>
-    <p>Вопрос от: Anonymous</p>
-  <% end %>
+    <% else %>
+      <p>Вопрос от: Anonymous</p>
+    <% end %>
 
     <%= l(question.created_at, format: :short) %>
   </div>
@@ -35,7 +35,9 @@
       <%= button_to fa_icon('trash-o'), question_path(question), method: :delete,
                     form: { data: { turbo_confirm: "Are you sure?" } }, title: 'Удалить вопрос', class: "mr-sm" %>
       <% unless question.hidden? %>
-      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :patch, title: 'Скрыть вопрос' %>
+        <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :patch, title: 'Скрыть вопрос' %>
+      <% else %>
+        <%= button_to fa_icon('eye'), hide_question_path(question), method: :patch, title: 'Отобразить вопрос' %>
       <% end %>
     </div>
   <% end %>
