@@ -18,7 +18,7 @@
 
 <div class="text-sm question-footer">
   <div class="text-grey">
-    <% if question.author_id.present? %>
+    <% if question.author.present? %>
       <p>Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author),
                                 class: 'text-dark-red' %></p>
     <% else %>
