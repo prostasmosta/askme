@@ -1,24 +1,21 @@
-# README
+This is a RoR app - analog of Askfm.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can ask questions to other people and answer on
+their questions.
 
-Things you may want to cover:
+It use Rails 7 and Ruby 3.
+***
+You will need Ruby (version 3.0.2).
 
-* Ruby version
+### Usage
 
-* System dependencies
+**Bundle all gems**
 
-* Configuration
+```
+$ bundle install
+```
+**Launch**
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+rails s
+```
